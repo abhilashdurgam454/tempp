@@ -1,11 +1,18 @@
-import React from 'react';
-import './style.css';
+import React, { createContext } from 'react';
+import ChildA from './components/ChildA';
 
-export default function App() {
+// Create a new context
+const data = createContext();
+
+function App() {
+  const name = "harshita";
+
   return (
-    <div>
-      <h1>Hello StackBlitz!</h1>
-      <p>Start editing to see some magic happen :)</p>
-    </div>
+    <data.Provider value={name}>
+      <ChildA />
+    </data.Provider>
   );
 }
+
+export default App;
+export { data }; // Export the context for use in other files
